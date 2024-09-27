@@ -6,6 +6,19 @@ function cargarClasificaciones() {
     // Obtener las clasificaciones guardadas en el localStorage
     let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
 
+    // Agregar las clasificaciones del juego de dados
+    let maxPuntajeDado = localStorage.getItem('maxPuntajeDado');
+    let maxNombreDado = localStorage.getItem('maxNombreDado');
+    let juegoDado = localStorage.getItem('juegoDado');
+    if (maxPuntajeDado) {
+        clasificaciones.push({
+            jugador: maxNombreDado,
+            puntaje: maxPuntajeDado,
+            juego: juegoDado,
+            fecha: new Date().toISOString()
+        });
+    }
+
     // Ordenar las clasificaciones por puntaje (de mayor a menor)
     clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
 
@@ -24,6 +37,3 @@ function cargarClasificaciones() {
         tablaCuerpo.appendChild(fila);
     });
 }
-
-// Llamar a la función cuando se cargue la página de clasificaciones
-document.addEventListener('DOMContentLoaded', cargarClasificaciones);
