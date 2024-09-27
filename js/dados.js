@@ -69,22 +69,18 @@ function actualizarTablaHistorial(jugador, puntos, esRobo) {
 
 // Función para verificar y guardar el puntaje más alto en localStorage
 function guardarMaxPuntaje() {
-    let maxPuntaje = localStorage.getItem('maxPuntaje');
+    let maxPuntaje = localStorage.getItem('maxPuntajeDado');
     let nombreJugador1 = document.querySelector('#nombre-jugador1').value || 'Desconocido';
     let nombreJugador2 = document.querySelector('#nombre-jugador2').value || 'Jugador 2';
 
     if (!maxPuntaje || puntosJugador1 > maxPuntaje || puntosJugador2 > maxPuntaje) {
         maxPuntaje = Math.max(puntosJugador1, puntosJugador2);
         let maxNombre = puntosJugador1 >= puntosJugador2 ? nombreJugador1 : nombreJugador2; // Determinar quién ganó
-        localStorage.setItem('maxPuntaje', maxPuntaje);
-        localStorage.setItem('maxNombre', maxNombre); // Guardar también el nombre
+        localStorage.setItem('maxPuntajeDado', maxPuntaje);
+        localStorage.setItem('maxNombreDado', maxNombre); // Guardar también el nombre
+        localStorage.setItem('juegoDado', 'Juego de Dados'); // Guardar el nombre del juego
     }
-
-    // Actualizar la visualización del puntaje más alto
-    document.querySelector('#max-puntaje').innerText = `Puntaje más alto: ${maxPuntaje} - ${localStorage.getItem('maxNombre')}`;
 }
-
-
 
 // Función para jugar el juego
 function jugar() {
