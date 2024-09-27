@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Dados</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Tu Horóscopo</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="desarrollador.html">Sobre el desarrollador</a></li>
+                <li><a href="juego-cartas.html">Juego de Cartas</a></li>
+                <li><a href="#">Juego de Dados</a></li>
+                <li><a href="preguntas-respuestas.html">Preguntas y Respuestas</a></li>
+                <li><a href="clasificaciones.html">Tabla de Clasificaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contenido">
+            <article>
+                <h2>Juego de Dados</h2>
+                <p>El objetivo del juego es ganar puntos al lanzar dados.</p>
+                <p>El juego consta de dos jugadores.</p>
+                <p>Cada jugador lanza dos dados y suma sus puntos.</p>
+                <p>Si un jugador lanza un "dado de la suerte" (un dado con un valor de 6), gana puntos adicionales.</p>
+                <p>Si un jugador lanza dos dados iguales, puede "robar" puntos a su oponente.</p>
+                <p>El jugador con más puntos al final del juego gana.</p>
+                <p>En caso de empate, se lanzan nuevos dados.</p>
+            </article>
+            <article>
+                <h2>Resultado</h2>
+                <button id="jugar-btn">Jugar</button>
+                <p id="resultado">Comienza el juego.</p>
+                <!-- Mostrar dados lanzados -->
+                <div class="jugador" id="jugador1">
+                    <h3>Jugador 1:</h3>
+                    <label for="nombre-jugador1">Nombre:</label>
+                    <input type="text" id="nombre-jugador1" placeholder="Nombre Jugador 1">
+                    <img id="dado1-jugador1" src="" alt="Dado 1 Jugador 1" width="100">
+                    <img id="dado2-jugador1" src="" alt="Dado 2 Jugador 1" width="100">
+                </div>
+                <div class="jugador" id="jugador2">
+                    <h3>Jugador 2:</h3>
+                    <label for="nombre-jugador2">Nombre:</label>
+                    <input type="text" id="nombre-jugador2" placeholder="Nombre Jugador 2">
+                    <img id="dado1-jugador2" src="" alt="Dado 1 Jugador 2" width="100">
+                    <img id="dado2-jugador2" src="" alt="Dado 2 Jugador 2" width="100">
+                </div>
+            </article>
+
+            <article>
+                <h2>Puntajes</h2>
+                <div>
+                    <p>Jugador 1: <span id="puntos-jugador1">0</span></p>
+                    <p>Jugador 2: <span id="puntos-jugador2">0</span></p>
+                </div>
+                <div>
+                    <p id="max-puntaje">Puntaje más alto: 0</p>
+                </div>
+            </article>
+
+            <article>
+                <h2>Historial</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jugador</th>
+                            <th>Puntos</th>
+                            <th>Robo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historial"></tbody>
+                </table>
+            </article>
+            <button id="reiniciar-btn">Reiniciar</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sitio web poco creativo.</p>
+    </footer>
+
+    <script src="js/dados.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas y Respuestas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Tu Horóscopo</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="desarrollador.html">Sobre el desarrollador</a></li>
+                <li><a href="juego-cartas.html">Juego de Cartas</a></li>
+                <li><a href="juego-dados.html">Juego de Dados</a></li>
+                <li><a href="#">Preguntas y Respuestas</a></li>
+                <li><a href="clasificaciones.html">Tabla de Clasificaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contenido">
+            <article>
+                <h2>Preguntas y Respuestas</h2>
+                  <!-- Formulario de inicio para los nombres de los jugadores -->
+  <div id="inicio">
+    <h2>¡Ingresá los nombres de los jugadores para comenzar!</h2>
+    <p>El juego consta de 20 preguntas, 10 para cada jugador. El que obtenga más respuestas correctas será el ganador.</p>
+    <p>Si no seleccionás una opción antes de que se acabe el tiempo, perdés el turno. ¡Hay que pensar rápido!</p><br>
+    <p>¡Buena suerte!</p><br>
+    <form id="form-jugadores">
+      <label>Jugador 1: <input type="text" id="nombre-jugador1" required></label><br><br>
+      <label>Jugador 2: <input type="text" id="nombre-jugador2" required></label><br><br>
+      <button type="submit">Comenzar</button>
+    </form>
+  </div>
+  
+  <!-- Contenedor del juego -->
+  <div id="contenedor-juego">
+    <h2 id="jugador-actual"></h2>
+    <div id="temporizador">Tiempo restante: <span id="tiempo">10</span> segundos</div>
+    <div id="pregunta"></div>
+    <div id="opciones"></div>
+    <div id="resultado-ronda"></div>
+    <button id="siguiente" style="display: none;">Siguiente</button>
+    <div id="puntajes"></div>
+  </div>
+  
+  <!-- Resultado final --> 
+  <div id="resultado-final" style="display: none;">
+    <h2>Resultado Final</h2>
+    <p id="resultado"></p>
+    <p id="puntaje-final"></p>
+</div>
+
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Sitio web poco creativo.</p>
+    </footer>
+    <script src="js/preguntas.js"></script>
+</body>
+</html>

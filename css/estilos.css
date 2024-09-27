@@ -1,0 +1,346 @@
+/* Estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../imagenes/fondo-estrellas-verde.jpg);
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #6C3B79, #DF3375 90%);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    word-wrap: break-word;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #E198FF;
+    transition: color 0.5s;
+    background-color: #342C36;
+    border-radius: 15px;
+    padding: 0.5em;
+}
+
+nav ul li a:active {
+    color: gold;
+}
+
+
+img {
+    float: left;
+    max-width: 100%;
+    border-radius: 20px;
+    padding: 2em;
+}
+
+.desplazar-img{
+    float: right;
+}
+
+/* Flecha en contenido colapsado */
+details summary::marker {
+    content: "⮞ ";
+    color: rgb(255, 176, 231);
+    font-size: 1.5rem;
+  }
+  
+  /* Flecha en contenido desplegado */
+  details[open] summary::marker {
+    content: "⮟ ";
+  }
+
+  summary {
+  text-align: center;
+  background-color: #b651df;
+  color: white;
+  box-shadow: 0 4px 8px rgba(167, 17, 248, 0.1);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+/* Añade márgenes entre los elementos de cada jugador (dados)*/
+.jugador {
+    display: inline-block;
+    width: 40%;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.jugador img {
+    margin: 10px;
+}
+
+/* Estilos generales para los puntajes (dados) */
+#puntos-jugador1, #puntos-jugador2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Sección de resultado */
+#resultado {
+    font-size: 1.3em;
+    margin-top: 20px;
+}
+/* Estilos para el juego de preguntas y respuestas */
+#contenedor-juego, #resultado-final {
+    display: none;
+  }
+  #pregunta {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  .opcion {
+    background-color: #7907f2;
+    border: 2px solid #ccc;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  .correcto {
+    background-color: #28a745;
+    color: white;
+  }
+  .incorrecto {
+    background-color: #dc3545;
+    color: white;
+  }
+  #puntajes, #temporizador {
+    margin: 20px 0;
+  }
+  #resultado-ronda {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+/* Estilos para los formularios de ingreso y registro */
+.contenedor-ingreso, .contenedor-registro {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 5rem auto;
+    display: block;
+    max-width: 100%;
+}
+
+.contenedor-ingreso h2, .contenedor-registro h2 {
+    text-align: center;
+    color: #6C3B79;
+    margin-bottom: 1.5rem;
+}
+
+.contenedor-ingreso form, .contenedor-registro form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #6C3B79;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #DF3375;
+}
+
+.contenedor-ingreso p, .contenedor-registro p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.contenedor-ingreso p a, .contenedor-registro p a {
+    color: #6C3B79;
+    text-decoration: none;
+}
+
+.contenedor-ingreso p a:hover, .contenedor-registro p a:hover {
+    color: #DF3375;
+}
+
+.mensaje-error {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+#contenidoPrincipal {
+    display: none;
+}
+
+/* Estilos del contenido principal */
+.contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+article {
+    background-color: whitesmoke;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+article:hover {
+    transform: scale(1.05);
+}
+
+article h2 {
+    color: #af002d;
+    margin-bottom: 1rem;
+}
+
+/* Sección de proyectos destacados */
+.destacados {
+    background: linear-gradient(135deg, #6C3B79, #DF3375 90%);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.destacados h2 {
+    color: linear-gradient(135deg, #6C3B79, #DF3375 90%);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.proyecto {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.proyecto h3 {
+    color:#57186F ;
+    text-align: center;
+    padding: 1em;
+}
+
+footer {
+    background-color: #4E185E;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* estilos para el juego de cartas */
+.cartas { 
+    display: flex; justify-content: center; margin-top: 20px;
+}
+
+.cartas img {
+    width: 80px; height: auto; margin: 0 10px;
+}
+
+@media (min-width: 768px) {
+    body {
+        background-image: url(../imagenes/fondo-desktop.png);
+    }
+
+    .contenido {
+        flex-direction: row;
+        gap: 2m;
+    }
+
+
+    .contenido article {
+        flex: 1 1 calc(33.333% - 2rem);/* Calcula el ancho menos el espacio de 2rem entre artículos usando calc para restar espacio entre elementos y así alinear en tres filas*/
+
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        max-width: 1200px;
+        padding: 2rem;
+        background-color: #342C36;
+        margin: 0 auto;
+    }
+
+    .destacados {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .proyecto {
+        flex: 1;
+        margin-right: 1rem;
+    }
+
+    .proyecto:last-child {
+        margin-right: 0;
+    }
+
+}
