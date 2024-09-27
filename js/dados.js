@@ -85,21 +85,28 @@ function guardarMaxPuntaje() {
 // Función para guardar la clasificación en localStorage
 function guardarClasificacion(jugador, puntaje) {
     const nuevaClasificacion = {
-      jugador: jugador,
-      puntaje: puntaje,
-      fecha: new Date().toISOString(),
-      juego: "Juego de Dados"  // Nombre del juego para identificarlo en otras páginas
+        jugador: jugador,
+        puntaje: puntaje,
+        fecha: new Date().toISOString(),
+        juego: "Juego de Dados"  // Nombre del juego para identificarlo en otras páginas
     };
-  
+
     // Obtener el arreglo de clasificaciones de localStorage o crear uno vacío
     let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
-  
+
     // Agregar la nueva clasificación
     clasificaciones.push(nuevaClasificacion);
-  
+
+    // Ordenar las clasificaciones por puntaje de mayor a menor
+    clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
+
+    // Solo mantener los tres primeros puntajes
+    clasificaciones = clasificaciones.slice(0, 3);
+
     // Guardar el array actualizado en localStorage
     localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
-  }
+}
+
 
 // Función para jugar el juego
 function jugar() {
