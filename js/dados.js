@@ -171,7 +171,8 @@ document.querySelector('#reiniciar-btn').addEventListener('click', reiniciarJueg
 
 // Mostrar el puntaje más alto al cargar la página
 window.onload = function() {
-    const maxPuntaje = localStorage.getItem('maxPuntaje') || 0;
-    const maxNombre = localStorage.getItem('maxNombre') || 'Desconocido';
+    const maxPuntaje = localStorage.getItem('maxPuntajeDado') || 0;
+    const maxNombre = localStorage.getItem('maxNombreDado') || 'Desconocido';
     document.querySelector('#max-puntaje').innerText = `Puntaje más alto: ${maxPuntaje} - ${maxNombre}`;
 };
+
