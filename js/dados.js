@@ -94,7 +94,7 @@ function guardarClasificacion(jugador, puntaje) {
     // Obtener el arreglo de clasificaciones de localStorage o crear uno vacío
     let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
 
-    // Agregar la nueva clasificación
+    // Agregar la nueva clasificación solo si está dentro de los tres mejores
     clasificaciones.push(nuevaClasificacion);
 
     // Ordenar las clasificaciones por puntaje de mayor a menor
@@ -105,6 +105,9 @@ function guardarClasificacion(jugador, puntaje) {
 
     // Guardar el array actualizado en localStorage
     localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
+
+    // Actualizar la tabla de clasificaciones en pantalla
+    actualizarTablaClasificaciones();
 }
 
 
