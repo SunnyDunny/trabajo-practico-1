@@ -82,6 +82,25 @@ function guardarMaxPuntaje() {
     }
 }
 
+// Función para guardar la clasificación en localStorage
+function guardarClasificacion(jugador, puntaje) {
+    const nuevaClasificacion = {
+      jugador: jugador,
+      puntaje: puntaje,
+      fecha: new Date().toISOString(),
+      juego: "Juego de Dados"  // Nombre del juego para identificarlo en otras páginas
+    };
+  
+    // Obtener el arreglo de clasificaciones de localStorage o crear uno vacío
+    let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
+  
+    // Agregar la nueva clasificación
+    clasificaciones.push(nuevaClasificacion);
+  
+    // Guardar el array actualizado en localStorage
+    localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
+  }
+
 // Función para jugar el juego
 function jugar() {
     if (puntosJugador1 >= limitePuntos || puntosJugador2 >= limitePuntos) {
@@ -118,25 +137,19 @@ function jugar() {
     actualizarTablaHistorial(1, puntos1, false);
     actualizarTablaHistorial(2, puntos2, false);
 
-    // Verificar si algún jugador alcanzó los 100 puntos
-    if (puntosJugador1 >= limitePuntos) {
-        document.querySelector('#resultado').innerText = '¡Jugador 1 gana el juego!';
-        guardarMaxPuntaje();
-    } else if (puntosJugador2 >= limitePuntos) {
-        document.querySelector('#resultado').innerText = '¡Jugador 2 gana el juego!';
-        guardarMaxPuntaje();
-    }
-    if (puntosJugador1 >= limitePuntos) {
-        document.querySelector('#resultado').innerText = '¡Jugador 1 gana el juego!';
-        guardarMaxPuntaje();
-        // Mostrar mensaje de que se ha guardado el puntaje
-        alert(`¡${document.querySelector('#nombre-jugador1').value} ha ganado!`);
-    } else if (puntosJugador2 >= limitePuntos) {
-        document.querySelector('#resultado').innerText = '¡Jugador 2 gana el juego!';
-        guardarMaxPuntaje();
-        // Mostrar mensaje de que se ha guardado el puntaje
-        alert(`¡${document.querySelector('#nombre-jugador2').value} ha ganado!`);
-    }
+ // Verificar si algún jugador alcanzó los 100 puntos
+if (puntosJugador1 >= limitePuntos) {
+    document.querySelector('#resultado').innerText = '¡Jugador 1 gana el juego!';
+    guardarClasificacion(document.querySelector('#nombre-jugador1').value || 'Desconocido', puntosJugador1);
+    guardarMaxPuntaje();
+    alert(`¡${document.querySelector('#nombre-jugador1').value} ha ganado!`);
+} else if (puntosJugador2 >= limitePuntos) {
+    document.querySelector('#resultado').innerText = '¡Jugador 2 gana el juego!';
+    guardarClasificacion(document.querySelector('#nombre-jugador2').value || 'Desconocido', puntosJugador2);
+    guardarMaxPuntaje();
+    alert(`¡${document.querySelector('#nombre-jugador2').value} ha ganado!`);
+}
+
     
 }
 
