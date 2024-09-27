@@ -1,29 +1,28 @@
-// Función para cargar y mostrar las clasificaciones en la tabla de clasificaciones
-function cargarClasificaciones() {
-    const tablaCuerpo = document.querySelector('#tabla-clasificaciones tbody');
-    tablaCuerpo.innerHTML = '';  // Limpiar cualquier contenido existente
+// Leer las clasificaciones de localStorage
+window.onload = function() {
+    const clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
+    const tablaClasificaciones = document.querySelector('#tabla-clasificaciones tbody');
 
-    // Obtener las clasificaciones guardadas en el localStorage
-    let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
+    // Limpiar la tabla
+    tablaClasificaciones.innerHTML = '';
 
-    // Ordenar las clasificaciones por puntaje (de mayor a menor)
-    clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
-
-    // Rellenar la tabla con las clasificaciones
-    clasificaciones.forEach((clasificacion, index) => {
+    // Llenar la tabla con las clasificaciones almacenadas
+    clasificaciones.forEach(clasificacion => {
         const fila = document.createElement('tr');
+        const celdaJugador = document.createElement('td');
+        const celdaPuntaje = document.createElement('td');
+        const celdaFecha = document.createElement('td');
+        const celdaJuego = document.createElement('td');
 
-        fila.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${clasificacion.jugador}</td>
-            <td>${clasificacion.puntaje}</td>
-            <td>${clasificacion.juego}</td>
-            <td>${new Date(clasificacion.fecha).toLocaleDateString()}</td>
-        `;
+        celdaJugador.innerText = clasificacion.jugador;
+        celdaPuntaje.innerText = clasificacion.puntaje;
+        celdaFecha.innerText = new Date(clasificacion.fecha).toLocaleDateString(); // Convertir la fecha a formato legible
+        celdaJuego.innerText = clasificacion.juego;
 
-        tablaCuerpo.appendChild(fila);
+        fila.appendChild(celdaJugador);
+        fila.appendChild(celdaPuntaje);
+        fila.appendChild(celdaFecha);
+        fila.appendChild(celdaJuego);
+        tablaClasificaciones.appendChild(fila);
     });
-}
-
-// Llamar a la función cuando se cargue la página de clasificaciones
-document.addEventListener('DOMContentLoaded', cargarClasificaciones);
+};
