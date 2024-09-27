@@ -204,32 +204,7 @@ function desactivarOpciones() {
 btnSiguiente.onclick = function() {
   siguientePregunta();
 };
-
-// Función para mostrar los resultados
-// Función para mostrar los resultados
-function mostrarResultados() {
-    contenedorJuego.style.display = "none";
-    divResultadoFinal.style.display = "block";
   
-    // Limpiar el contenido previo
-    divPuntajeFinal.textContent = ""; // Asegúrate de que esté vacío antes de llenarlo.
-  
-    // Determinar ganador y mostrar puntajes
-    if (puntajes[0] > puntajes[1]) {
-      divResultadoFinal.textContent = `${jugadores[0]} gana! 🎉`;
-      divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
-      guardarPuntajeMaximo(jugadores[0], puntajes[0]);
-    } else if (puntajes[1] > puntajes[0]) {
-      divResultadoFinal.textContent = `${jugadores[1]} gana! 🎉`;
-      divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
-      guardarPuntajeMaximo(jugadores[1], puntajes[1]);
-    } else {
-      divResultadoFinal.textContent = "¡Es un empate! 🤝";
-      divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
-    }
-  }
-  
-
 // Función para guardar la clasificación en localStorage
 function guardarClasificacion(jugador, puntaje) {
     const nuevaClasificacion = {
