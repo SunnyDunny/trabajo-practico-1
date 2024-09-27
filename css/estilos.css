@@ -91,7 +91,7 @@ details summary::marker {
 .jugador {
     display: inline-block;
     width: 40%;
-    padding: 20px;
+    padding: 1rem;
     text-align: center;
     border: 1px solid #ccc;
     margin: 10px;
@@ -99,9 +99,6 @@ details summary::marker {
     background-color: #f9f9f9;
 }
 
-.jugador img {
-    margin: 10px;
-}
 
 /* Estilos generales para los puntajes (dados) */
 #puntos-jugador1, #puntos-jugador2 {
