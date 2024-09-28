@@ -1,30 +1,32 @@
-// Leer las clasificaciones de localStorage y mostrar en la tabla
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', () => {
+    const tablaClasificaciones = document.getElementById('tabla-clasificaciones').querySelector('tbody');
+    
+    // Recuperar las clasificaciones del localStorage
     const clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
-    const tablaClasificaciones = document.querySelector('#tabla-clasificaciones tbody');
-    
-    // Limpiar la tabla
-    tablaClasificaciones.innerHTML = '';
-    
-    // Llenar la tabla con las clasificaciones almacenadas
+  
+    // Iterar sobre las clasificaciones y añadirlas a la tabla
     clasificaciones.forEach(clasificacion => {
       const fila = document.createElement('tr');
-      const celdaJugador = document.createElement('td');
+
+      const celdaGanador = document.createElement('td');
+      celdaGanador.textContent = clasificacion.jugador;
+      fila.appendChild(celdaGanador);
+
       const celdaPuntaje = document.createElement('td');
-      const celdaFecha = document.createElement('td');
-      const celdaJuego = document.createElement('td');
-      
-      celdaJugador.innerText = clasificacion.jugador;
-      celdaPuntaje.innerText = clasificacion.puntaje;
-      celdaFecha.innerText = new Date(clasificacion.fecha).toLocaleDateString(); // Convertir la fecha a formato legible
-      celdaJuego.innerText = clasificacion.juego;
-  
-      fila.appendChild(celdaJugador);
+      celdaPuntaje.textContent = clasificacion.puntaje;
       fila.appendChild(celdaPuntaje);
+  
+      const celdaFecha = document.createElement('td');
+      celdaFecha.textContent = new Date(clasificacion.fecha).toLocaleString();
       fila.appendChild(celdaFecha);
-      fila.appendChild(celdaJuego);
       
+      // Crear celdas para cada propiedad
+      const celdaJuego = document.createElement('td');
+      celdaJuego.textContent = clasificacion.juego;
+      fila.appendChild(celdaJuego);
+  
+      // Añadir la fila a la tabla
       tablaClasificaciones.appendChild(fila);
     });
-  };
+  });
   
