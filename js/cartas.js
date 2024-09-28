@@ -132,6 +132,9 @@ function jugarRondas(jugador, computadora, cartasJugador, cartasComputadora, apu
   rondasSinGanador++;
 
   if (rondasSinGanador === 3) {
+    // Mostrar alert al barajar nuevamente
+    alert('¡No hubo ganador en 3 rondas! Barajando nuevas cartas.');
+
     // Repartir nuevas cartas y reiniciar rondas
     rondaActual = 1;
     rondasSinGanador = 0;
