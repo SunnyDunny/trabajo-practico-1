@@ -106,8 +106,6 @@ function guardarClasificacion(jugador, puntaje) {
     // Guardar el array actualizado en localStorage
     localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
 
-    // Actualizar la tabla de clasificaciones en pantalla
-    actualizarTablaClasificaciones();
 }
 
 
