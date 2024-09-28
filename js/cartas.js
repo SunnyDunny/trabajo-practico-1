@@ -180,41 +180,45 @@ document.getElementById('apuesta-10').onclick = () => establecerApuesta(10);
 document.getElementById('apuesta-15').onclick = () => establecerApuesta(15);
 
 
-//Guarda la clasificación en localStorage
-function guardarClasificacion(jugador, puntaje) {
-  const nuevaClasificacion = {
-    jugador: jugador,
-    puntaje: puntaje,
-    fecha: new Date().toISOString(),
-    juego: "Juego de Cartas"
-  };
+function guardarClasificacion() {
+  try {
+    // Recuperar el array de clasificaciones del localStorage o crear uno nuevo
+    let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
 
-  // Obtener las clasificaciones o crear una lista vacía
-  let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
+    // Crear un objeto de clasificación con el puntaje del jugador y la computadora
+    let clasificacion = {
+      juego: "Juego de Cartas",
+      fecha: new Date().toISOString(),
+      jugador: jugador.puntos >= 50 ? "Jugador" : "Computadora",
+      puntaje: jugador.puntos >= 50 ? jugador.puntos : computadora.puntos
+    };
 
-  // Añadir la nueva clasificación
-  clasificaciones.push(nuevaClasificacion);
+    // Agregar la clasificación al array de clasificaciones
+    clasificaciones.push(clasificacion);
 
-  // Ordenar por puntaje descendente
-  clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
+    // Ordenar las clasificaciones por puntaje de mayor a menor
+    clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
 
-  // Mantener solo las tres mejores clasificaciones
-  clasificaciones = clasificaciones.slice(0, 3);
+    // Guardar solo las tres mejores clasificaciones
+    clasificaciones = clasificaciones.slice(0, 3);
 
-  // Guardar de nuevo en localStorage
-  localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
+    // Guardar el array de clasificaciones en el localStorage
+    localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
+  } catch (error) {
+    console.error(error);
+  }
 }
+
 
 function finalizarJuego() {
   // Verificar si el jugador o la computadora llegó a 50 puntos
   if (jugador.puntos >= 50 || computadora.puntos >= 50) {
     if (jugador.puntos >= 50) {
       alert('¡Felicidades! Has ganado el juego.');
-      guardarClasificacion("Jugador", jugador.puntos); // Guarda la clasificación del jugador
     } else {
       alert('La computadora ha ganado el juego. ¡Mejor suerte la próxima vez!');
-      guardarClasificacion("Computadora", computadora.puntos); // Guarda la clasificación de la computadora
     }
+    guardarClasificacion(); // Guarda la clasificación
     reiniciarJuego();
   } else {
     comenzarNuevoTurno();  // Si no hay ganador, inicia un nuevo turno
@@ -239,10 +243,10 @@ if (rondaActual < 3) {
   finalizarJuego();
 }
 
-
-
   // Reiniciar el juego después de mostrar el mensaje
   reiniciarJuego();
+
+  console.log(JSON.parse(localStorage.getItem('clasificaciones')));
 
 
 
