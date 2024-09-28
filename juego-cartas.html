@@ -25,35 +25,32 @@
     <section class="contenido">
       <article>
         <div id="juego">
-          <h2>Juego de Cartas</h1>
-            <div id="tablero">
-              <div class="jugador">
-                  <h2>Jugador</h2>
-                  <div class="cartas">
-                      <img id="carta1-jugador" class="carta" src="" alt="Carta 1">
-                      <img id="carta2-jugador" class="carta" src="" alt="Carta 2">
-                      <img id="carta3-jugador" class="carta" src="" alt="Carta 3">
-                  </div>
+          <h2>Juego de Cartas</h2>
+          <div id="tablero">
+            <div class="jugador">
+              <h2>Jugador</h2>
+              <div class="cartas" id="cartas-jugador">
+                <!-- Las cartas se agregarán aquí mediante JavaScript -->
               </div>
-              <div class="computadora">
-                  <h2>Computadora</h2>
-                  <div class="cartas">
-                      <img id="carta1-computadora" class="carta" src="" alt="Carta 1">
-                      <img id="carta2-computadora" class="carta" src="" alt="Carta 2">
-                      <img id="carta3-computadora" class="carta" src="" alt="Carta 3">
-                  </div>
+            </div>
+            <div class="computadora">
+              <h2>Computadora</h2>
+              <div class="cartas" id="cartas-computadora">
+                <!-- Las cartas de la computadora se agregarán aquí -->
               </div>
+            </div>
           </div>
           
           <div>
-              <button id="apuesta-5" class="boton-apuesta">Apostar 5</button>
-              <button id="apuesta-10" class="boton-apuesta">Apostar 10</button>
-              <button id="apuesta-15" class="boton-apuesta">Apostar 15</button>
+            <button id="apuesta-5" class="boton-apuesta" onclick="establecerApuesta(5)">Apostar 5</button>
+            <button id="apuesta-10" class="boton-apuesta" onclick="establecerApuesta(10)">Apostar 10</button>
+            <button id="apuesta-15" class="boton-apuesta" onclick="establecerApuesta(15)">Apostar 15</button>
           </div>
-          <div class="status" id="status"></div>
-          <div class="instrucciones" id="instrucciones"></div> 
+          <div class="status" id="status">Puntos Jugador: 0 | Puntos Computadora: 0</div>
+          <div class="instrucciones" id="instrucciones"></div>
+          <button id="reiniciar" onclick="reiniciarJuego()">Reiniciar Juego</button>
         </div>
-        </article>
+      </article>
     </section>
   </main>
   <footer>
