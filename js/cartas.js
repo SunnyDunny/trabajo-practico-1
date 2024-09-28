@@ -179,5 +179,70 @@ document.getElementById('apuesta-5').onclick = () => establecerApuesta(5);
 document.getElementById('apuesta-10').onclick = () => establecerApuesta(10);
 document.getElementById('apuesta-15').onclick = () => establecerApuesta(15);
 
-// Inicializar el juego
-reiniciarJuego();
+
+//Guarda la clasificación en localStorage
+function guardarClasificacion(jugador, puntaje) {
+  const nuevaClasificacion = {
+    jugador: jugador,
+    puntaje: puntaje,
+    fecha: new Date().toISOString(),
+    juego: "Juego de Cartas"
+  };
+
+  // Obtener las clasificaciones o crear una lista vacía
+  let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
+
+  // Añadir la nueva clasificación
+  clasificaciones.push(nuevaClasificacion);
+
+  // Ordenar por puntaje descendente
+  clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
+
+  // Mantener solo las tres mejores clasificaciones
+  clasificaciones = clasificaciones.slice(0, 3);
+
+  // Guardar de nuevo en localStorage
+  localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
+}
+
+function finalizarJuego() {
+  // Verificar si el jugador o la computadora llegó a 50 puntos
+  if (jugador.puntos >= 50 || computadora.puntos >= 50) {
+    if (jugador.puntos >= 50) {
+      alert('¡Felicidades! Has ganado el juego.');
+      guardarClasificacion("Jugador", jugador.puntos); // Guarda la clasificación del jugador
+    } else {
+      alert('La computadora ha ganado el juego. ¡Mejor suerte la próxima vez!');
+      guardarClasificacion("Computadora", computadora.puntos); // Guarda la clasificación de la computadora
+    }
+    reiniciarJuego();
+  } else {
+    comenzarNuevoTurno();  // Si no hay ganador, inicia un nuevo turno
+  }
+}
+
+
+// Llamar a finalizarJuego al terminar cada turno en la lógica existente
+if (rondaActual < 3) {
+  rondaActual++;
+  setTimeout(() => {
+    mostrarCartas(); // Mostrar cartas restantes
+    document.getElementById('instrucciones').textContent = `Apuesta de ${apuesta} puntos. Ronda ${rondaActual}: selecciona una carta.`;
+  }, 1000);
+} else {
+  mostrarCartas();
+  jugador.cartas = [];
+  computadora.cartas = [];
+  rondaActual = 1;
+
+  // Finaliza el juego o continúa si no hay ganador
+  finalizarJuego();
+}
+
+
+
+  // Reiniciar el juego después de mostrar el mensaje
+  reiniciarJuego();
+
+
+
