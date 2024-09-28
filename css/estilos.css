@@ -158,6 +158,7 @@ details summary::marker {
     max-width: 100%;
 }
 
+/* Estilos del login */
 .contenedor-ingreso h2, .contenedor-registro h2 {
     text-align: center;
     color: #6C3B79;
@@ -223,6 +224,8 @@ button:hover {
 #contenidoPrincipal {
     display: none;
 }
+
+
 
 /* Estilos del contenido principal */
 .contenido {
@@ -293,12 +296,43 @@ footer p {
 }
 
 /* estilos para el juego de cartas */
-.cartas { 
-    display: flex; justify-content: center; margin-top: 20px;
+#juego {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px; /* Limitar el ancho en pantallas grandes */
+}
+
+#tablero {
+    display: flex; /* Alinea los jugadores en filas */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.jugador, .computadora {
+    flex: 1; /* Cada jugador toma el mismo ancho */
+    text-align: center; /* Centrar texto en cada columna */
+}
+
+.cartas {
+    display: flex; /* Usamos flexbox para alinear las cartas en fila */
+    justify-content: center; /* Centra las cartas horizontalmente */
+    margin-top: 10px; /* Espacio entre el título y las cartas */
+}
+
+.instrucciones {
+    font-size: 1.1em;
+    margin-top: 10px;
 }
 
 .cartas img {
-    width: 80px; height: auto; margin: 0 10px;
+    width: 80px; 
+    height: auto; 
+    margin: 0 10px;
 }
 
 @media (min-width: 768px) {
