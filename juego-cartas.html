@@ -24,37 +24,36 @@
   <main>
     <section class="contenido">
       <article>
-        <h2>Juego de Cartas</h2>
-        <div id="status"></div>
-        <div id="instrucciones"></div>
-        <div class="proyecto">
-            <div id="apuestas">
-                <button id="apuesta-5">Apuesta 5</button>
-                <button id="apuesta-10">Apuesta 10</button>
-                <button id="apuesta-15">Apuesta 15</button>
+        <div id="juego">
+          <h2>Juego de Cartas</h1>
+            <div id="tablero">
+              <div class="jugador">
+                  <h2>Jugador</h2>
+                  <div class="cartas">
+                      <img id="carta1-jugador" class="carta" src="" alt="Carta 1">
+                      <img id="carta2-jugador" class="carta" src="" alt="Carta 2">
+                      <img id="carta3-jugador" class="carta" src="" alt="Carta 3">
+                  </div>
               </div>
-              <div id="cartas-jugador">
-                <h3>Cartas del Jugador:</h3>
-                <img id="carta1-jugador" src="" alt="Carta 1 Jugador" width="100">
-                <img id="carta2-jugador" src="" alt="Carta 2 Jugador" width="100">
-                <img id="carta3-jugador" src="" alt="Carta 3 Jugador" width="100">
+              <div class="computadora">
+                  <h2>Computadora</h2>
+                  <div class="cartas">
+                      <img id="carta1-computadora" class="carta" src="" alt="Carta 1">
+                      <img id="carta2-computadora" class="carta" src="" alt="Carta 2">
+                      <img id="carta3-computadora" class="carta" src="" alt="Carta 3">
+                  </div>
               </div>
-              
-              <div id="cartas-computadora">
-                <h3>Cartas de la Computadora:</h3>
-                <img id="carta1-computadora" src="" alt="Carta 1 Computadora" width="100">
-                <img id="carta2-computadora" src="" alt="Carta 2 Computadora" width="100">
-                <img id="carta3-computadora" src="" alt="Carta 3 Computadora" width="100">
-              </div>
-              
-          <table id="tablaClasificacion">
-            <tr>
-              <th>Posición</th>
-              <th>Ganador</th>
-            </tr>
-          </table>
+          </div>
+          
+          <div>
+              <button id="apuesta-5" class="boton-apuesta">Apostar 5</button>
+              <button id="apuesta-10" class="boton-apuesta">Apostar 10</button>
+              <button id="apuesta-15" class="boton-apuesta">Apostar 15</button>
+          </div>
+          <div class="status" id="status"></div>
+          <div class="instrucciones" id="instrucciones"></div> 
         </div>
-      </article>
+        </article>
     </section>
   </main>
   <footer>
