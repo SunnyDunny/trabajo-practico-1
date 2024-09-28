@@ -185,7 +185,7 @@ function guardarClasificacion() {
     // Recuperar el array de clasificaciones del localStorage o crear uno nuevo
     let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
 
-    // Crear un objeto de clasificación con el puntaje del jugador y la computadora
+    // Crear un objeto de clasificación con el puntaje del jugador o la computadora
     let clasificacion = {
       juego: "Juego de Cartas",
       fecha: new Date().toISOString(),
@@ -205,10 +205,9 @@ function guardarClasificacion() {
     // Guardar el array de clasificaciones en el localStorage
     localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
   } catch (error) {
-    console.error(error);
+    console.error('Error guardando las clasificaciones:', error);
   }
 }
-
 
 function finalizarJuego() {
   // Verificar si el jugador o la computadora llegó a 50 puntos
@@ -225,8 +224,7 @@ function finalizarJuego() {
   }
 }
 
-
-// Llamar a finalizarJuego al terminar cada turno en la lógica existente
+// Llamar a finalizarJuego después de cada turno en la lógica existente
 if (rondaActual < 3) {
   rondaActual++;
   setTimeout(() => {
@@ -243,10 +241,8 @@ if (rondaActual < 3) {
   finalizarJuego();
 }
 
-  // Reiniciar el juego después de mostrar el mensaje
-  reiniciarJuego();
+// Reiniciar el juego después de mostrar el mensaje
+reiniciarJuego();
 
-  console.log(JSON.parse(localStorage.getItem('clasificaciones')));
-
-
-
+// Comprobar el almacenamiento en localStorage para verificar las clasificaciones guardadas
+console.log(JSON.parse(localStorage.getItem('clasificaciones')));
