@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>Juego de Cartas</h1>
+    <h1>Tu Horóscopo</h1>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -29,6 +29,11 @@
           <div id="tablero">
             <div class="jugador">
               <h2>Jugador</h2>
+              <div id="nombre-jugador">
+                <label for="nombre">Introduce tu nombre:</label>
+                <input type="text" id="nombre" placeholder="Tu nombre">
+                <button id="comenzar-juego">Comenzar Juego</button>
+              </div>              
               <div class="cartas" id="cartas-jugador">
                 <!-- Las cartas se agregarán aquí mediante JavaScript -->
               </div>
@@ -48,7 +53,7 @@
           </div>
           <div class="status" id="status">Puntos Jugador: 0 | Puntos Computadora: 0</div>
           <div class="instrucciones" id="instrucciones"></div>
-          <button id="reiniciar" onclick="reiniciarJuego()">Reiniciar Juego | Comenzar</button>
+          <button id="reiniciar" onclick="reiniciarJuego()">Reiniciar Juego</button>
         </div>
         <h3>Instrucciones:</h3>
           <p>Se debe jugar contra la computadora apostando puntos y las cartas de tu baraja. Apotá 5, 10 o 15 puntos y hacé click sobre la carta que deseés jugar en ese turno</p><br>
