@@ -114,7 +114,7 @@ let temporizadorId;
 let maxPreguntas = 20;
 let preguntaActualSeleccionada = null;
 
-// Elementos del DOM usando querySelector
+
 const divPregunta = document.querySelector("#pregunta");
 const divOpciones = document.querySelector("#opciones");
 const divPuntajes = document.querySelector("#puntajes");
@@ -127,7 +127,7 @@ const divPuntajeFinal = document.querySelector("#puntaje-final");
 const divJugadorActual = document.querySelector("#jugador-actual");
 const spanTiempo = document.querySelector("#tiempo");
 
-// Función para iniciar el juego
+// inicia el juego
 formJugadores.addEventListener("submit", (e) => {
   e.preventDefault();
   jugadores[0] = document.querySelector("#nombre-jugador1").value || "Jugador 1";
@@ -148,8 +148,8 @@ function siguientePregunta() {
 
   preguntaActual++;
   jugadorActual = (preguntaActual % 2);
-  const preguntaIndex = Math.floor(Math.random() * preguntasRestantes.length);
-  preguntaActualSeleccionada = preguntasRestantes[preguntaIndex];
+  const preguntaIndice = Math.floor(Math.random() * preguntasRestantes.length);
+  preguntaActualSeleccionada = preguntasRestantes[preguntaIndice];
 
   divJugadorActual.textContent = `${jugadores[jugadorActual]}, tu turno`;
   divPregunta.textContent = preguntaActualSeleccionada.pregunta;
@@ -165,9 +165,9 @@ function siguientePregunta() {
   });
 
   btnSiguiente.style.display = "none";
-  preguntasRestantes.splice(preguntaIndex, 1);
+  preguntasRestantes.splice(preguntaIndice, 1);
 
-  // Reiniciar el temporizador
+  // Reinicia el temporizador
   reiniciarTemporizador();
 }
 
@@ -176,7 +176,7 @@ function seleccionarOpcion(index, respuestaCorrecta, btnOpcion) {
   clearInterval(temporizadorId);
   const esCorrecta = index === respuestaCorrecta;
 
-  // Desactivar todas las opciones para evitar reintentos
+  // Desactiva todas las opciones para evitar reintentos
   desactivarOpciones();
 
   if (esCorrecta) {
@@ -188,7 +188,7 @@ function seleccionarOpcion(index, respuestaCorrecta, btnOpcion) {
     divResultadoRonda.textContent = `Incorrecto. La respuesta correcta era ${preguntaActualSeleccionada.opciones[respuestaCorrecta]}.`;
   }
 
-  // Mostrar el botón "Siguiente" para continuar al próximo turno
+  // Muestra el botón de siguiente para continuar al próximo turno
   btnSiguiente.style.display = "block";
 }
 
@@ -211,28 +211,28 @@ function guardarClasificacion(jugador, puntaje) {
       jugador: jugador,
       puntaje: puntaje,
       fecha: new Date().toISOString(),
-      juego: "Trivia Zodiaco"  // Nombre del juego para identificarlo en otras páginas
+      juego: "Trivia Zodíaco"
     };
   
-    // Obtener el arreglo de clasificaciones de localStorage o crear uno vacío
+    // Captura el array de clasificaciones de localStorage o crea uno vacío
     let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
   
-    // Agregar la nueva clasificación
+    // Agrega la nueva clasificación
     clasificaciones.push(nuevaClasificacion);
   
-    // Guardar el array actualizado en localStorage
+    // Guarda el array actualizado en localStorage
     localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
   }
   
-  // Modificar la función `mostrarResultados` para que guarde las clasificaciones
+  // Modifica la función para que guarde las clasificaciones
   function mostrarResultados() {
       contenedorJuego.style.display = "none";
       divResultadoFinal.style.display = "block";
     
-      // Limpiar el contenido previo
-      divPuntajeFinal.textContent = ""; // Asegúrate de que esté vacío antes de llenarlo.
+      // Limpia el contenido previo
+      divPuntajeFinal.textContent = "";
     
-      // Determinar ganador y mostrar puntajes
+      // Determina el ganador y muestra puntajes
       if (puntajes[0] > puntajes[1]) {
         divResultadoFinal.textContent = `${jugadores[0]} gana! 🎉`;
         divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
@@ -244,13 +244,13 @@ function guardarClasificacion(jugador, puntaje) {
       } else {
         divResultadoFinal.textContent = "¡Es un empate! 🤝";
         divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
-        guardarClasificacion(jugadores[0], puntajes[0]); // Guardar puntaje de ambos si es empate
+        guardarClasificacion(jugadores[0], puntajes[0]); // Guarda puntaje de ambos si es empate
         guardarClasificacion(jugadores[1], puntajes[1]);
       }
   }
   
 
-// Función para reiniciar el temporizador
+// Reinicia el temporizador
 function reiniciarTemporizador() {
   clearInterval(temporizadorId);
 
@@ -266,8 +266,8 @@ function reiniciarTemporizador() {
       tiempoRestante = 0;
       spanTiempo.textContent = tiempoRestante;
 
-      // Mostrar mensaje de tiempo agotado
-      divResultadoRonda.textContent = `Tiempo agotado. La respuesta correcta era ${preguntaActualSeleccionada.opciones[preguntaActualSeleccionada.respuestaCorrecta]}.`;
+      // Muestra mensaje de tiempo agotado
+      divResultadoRonda.textContent = `Se agotó el tiempo. La respuesta correcta era ${preguntaActualSeleccionada.opciones[preguntaActualSeleccionada.respuestaCorrecta]}.`;
       desactivarOpciones();
       btnSiguiente.style.display = "block";
     }
