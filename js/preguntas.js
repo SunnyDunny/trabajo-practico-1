@@ -1,4 +1,4 @@
-// Definición del juego
+// Definición del juego y las preguntas
 const juego = {
     preguntas: [
       {
@@ -234,11 +234,11 @@ function guardarClasificacion(jugador, puntaje) {
     
       // Determina el ganador y muestra puntajes
       if (puntajes[0] > puntajes[1]) {
-        divResultadoFinal.textContent = `${jugadores[0]} gana! 🎉`;
+        divResultadoFinal.textContent = `${jugadores[0]} gana con ${puntajes[0]} respuestas correctas! 🎉`;
         divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
         guardarClasificacion(jugadores[0], puntajes[0]);
       } else if (puntajes[1] > puntajes[0]) {
-        divResultadoFinal.textContent = `${jugadores[1]} gana! 🎉`;
+        divResultadoFinal.textContent = `${jugadores[1]} gana con ${puntajes[1]} respuestas correctas! 🎉`;
         divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
         guardarClasificacion(jugadores[1], puntajes[1]);
       } else {
