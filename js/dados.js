@@ -38,7 +38,7 @@ function calcularPuntos(dado1, dado2) {
         puntos += 10; // Puntos adicionales por lanzar dos dados iguales
     }
     if (dado1 === 6 || dado2 === 6) {
-        puntos += 5; // Puntos adicionales por lanzar un "dado de la suerte"
+        puntos += 5; // Puntos adicionales por lanzar un dado de la suerte
     }
     return puntos;
 }
@@ -67,7 +67,7 @@ function actualizarTablaHistorial(jugador, puntos, esRobo) {
     tabla.appendChild(fila);
 }
 
-// Función para verificar y guardar el puntaje más alto en localStorage
+// Función para verificar y guardar el puntaje más alto en localstorage
 function guardarMaxPuntaje() {
     let maxPuntaje = localStorage.getItem('maxPuntajeDado');
     let nombreJugador1 = document.querySelector('#nombre-jugador1').value || 'Desconocido';
@@ -75,10 +75,10 @@ function guardarMaxPuntaje() {
 
     if (!maxPuntaje || puntosJugador1 > maxPuntaje || puntosJugador2 > maxPuntaje) {
         maxPuntaje = Math.max(puntosJugador1, puntosJugador2);
-        let maxNombre = puntosJugador1 >= puntosJugador2 ? nombreJugador1 : nombreJugador2; // Determinar quién ganó
+        let maxNombre = puntosJugador1 >= puntosJugador2 ? nombreJugador1 : nombreJugador2; // Determina quién ganó
         localStorage.setItem('maxPuntajeDado', maxPuntaje);
-        localStorage.setItem('maxNombreDado', maxNombre); // Guardar también el nombre
-        localStorage.setItem('juegoDado', 'Juego de Dados'); // Guardar el nombre del juego
+        localStorage.setItem('maxNombreDado', maxNombre); // Guarda también el nombre
+        localStorage.setItem('juegoDado', 'Juego de Dados'); // Guarda el nombre del juego
     }
 }
 
@@ -88,39 +88,39 @@ function guardarClasificacion(jugador, puntaje) {
         jugador: jugador,
         puntaje: puntaje,
         fecha: new Date().toISOString(),
-        juego: "Juego de Dados"  // Nombre del juego para identificarlo en otras páginas
+        juego: "Juego de Dados"
     };
 
-    // Obtener el arreglo de clasificaciones de localStorage o crear uno vacío
+    // Captura el array de clasificaciones de localstorage o crea uno vacío
     let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
 
-    // Agregar la nueva clasificación solo si está dentro de los tres mejores
+    // Agrega la nueva clasificación solo si está dentro de los tres mejores
     clasificaciones.push(nuevaClasificacion);
 
-    // Ordenar las clasificaciones por puntaje de mayor a menor
+    // Ordena las clasificaciones por puntaje de mayor a menor
     clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
 
-    // Solo mantener los tres primeros puntajes
+    // Solo mantiene los tres primeros puntajes
     clasificaciones = clasificaciones.slice(0, 3);
 
-    // Guardar el array actualizado en localStorage
+    // Guarda el array actualizado en localstorage
     localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
 
 }
 
 
-// Función para jugar el juego
+// Función para jugar
 function jugar() {
     if (puntosJugador1 >= limitePuntos || puntosJugador2 >= limitePuntos) {
         return; // El juego termina cuando un jugador llega a 100 puntos
     }
 
-    // Lanzar los dados para el jugador 1
+    // Lanza los dados para el jugador 1
     const jugador1 = lanzarDosDados();
     let puntos1 = calcularPuntos(jugador1.dado1, jugador1.dado2);
     mostrarDados(1, jugador1.dado1, jugador1.dado2);
 
-    // Lanzar los dados para el jugador 2
+    // Lanza los dados para el jugador 2
     const jugador2 = lanzarDosDados();
     let puntos2 = calcularPuntos(jugador2.dado1, jugador2.dado2);
     mostrarDados(2, jugador2.dado1, jugador2.dado2);
@@ -137,15 +137,15 @@ function jugar() {
     puntosJugador1 += puntos1;
     puntosJugador2 += puntos2;
 
-    // Actualizar el puntaje en la pantalla
+    // Actualiza el puntaje en la pantalla
     document.querySelector('#puntos-jugador1').innerText = puntosJugador1;
     document.querySelector('#puntos-jugador2').innerText = puntosJugador2;
 
-    // Registrar el puntaje en la tabla de historial
+    // Registra el puntaje en la tabla de historial
     actualizarTablaHistorial(1, puntos1, false);
     actualizarTablaHistorial(2, puntos2, false);
 
- // Verificar si algún jugador alcanzó los 100 puntos
+ // Verifica si algún jugador alcanzó los 100 puntos
 if (puntosJugador1 >= limitePuntos) {
     document.querySelector('#resultado').innerText = '¡Jugador 1 gana el juego!';
     guardarClasificacion(document.querySelector('#nombre-jugador1').value || 'Desconocido', puntosJugador1);
@@ -161,7 +161,7 @@ if (puntosJugador1 >= limitePuntos) {
     
 }
 
-// Función para reiniciar el juego
+// Reinicia el juego
 function reiniciarJuego() {
     puntosJugador1 = 0;
     puntosJugador2 = 0;
@@ -171,13 +171,13 @@ function reiniciarJuego() {
     document.querySelector('#historial').innerHTML = ''; // Limpiar historial
 }
 
-// Añadir evento para iniciar el juego cuando se haga clic en el botón "Jugar"
+// Inicia el juego cuando se haga click en el botón jugar
 document.querySelector('#jugar-btn').addEventListener('click', jugar);
 
-// Añadir evento para reiniciar el juego cuando se haga clic en el botón "Reiniciar"
+// Reinicia el juego cuando se haga clic en el botón reiniciar
 document.querySelector('#reiniciar-btn').addEventListener('click', reiniciarJuego);
 
-// Mostrar el puntaje más alto al cargar la página
+// Muestra el puntaje más alto al cargar la página
 window.onload = function() {
     const maxPuntaje = localStorage.getItem('maxPuntajeDado') || 0;
     const maxNombre = localStorage.getItem('maxNombreDado') || 'Desconocido';
