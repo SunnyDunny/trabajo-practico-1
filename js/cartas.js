@@ -65,8 +65,8 @@ function reiniciarJuego() {
   computadora.cartas = [];
   cartasApostadas = [];
 
-  document.getElementById('status').textContent = `Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
-  document.getElementById('instrucciones').innerHTML = '';
+  document.querySelector('#status').textContent = `Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
+  document.querySelector('#instrucciones').innerHTML = '';
 
   comenzarNuevoTurno();
 }
@@ -82,7 +82,7 @@ function comenzarNuevoTurno() {
 
 // Función para mostrar las cartas del jugador
 function mostrarCartas() {
-  const cartasDiv = document.getElementById('cartas-jugador');
+  const cartasDiv = document.querySelector('#cartas-jugador');
   cartasDiv.innerHTML = '';
 
   jugador.cartas.forEach((carta, index) => {
@@ -95,7 +95,7 @@ function mostrarCartas() {
   });
 
   // Mostrar cartas de la computadora (reverso por ahora)
-  const cartasCompDiv = document.getElementById('cartas-computadora');
+  const cartasCompDiv = document.querySelector('#cartas-computadora');
   cartasCompDiv.innerHTML = '';
   computadora.cartas.forEach(carta => {
     const img = document.createElement('img');
@@ -109,7 +109,7 @@ function mostrarCartas() {
 // Función para establecer la apuesta
 function establecerApuesta(valor) {
   apuesta = valor;
-  document.getElementById('instrucciones').textContent = `Apuesta de ${apuesta} puntos realizada. Ronda ${rondaActual}: selecciona una carta.`;
+  document.querySelector('#instrucciones').textContent = `Apuesta de ${apuesta} puntos realizada. Ronda ${rondaActual}: selecciona una carta.`;
 }
 
 // Función para jugar un turno
@@ -134,24 +134,24 @@ function jugarTurno(indiceCartaJugador) {
   // Verificar quién gana
   if (cartaApostadaJugador.valor > cartaApostadaComputadora.valor) {
     jugador.puntos += apuesta;
-    document.getElementById('status').textContent = `¡Ganaste esta ronda! Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
+    document.querySelector('#status').textContent = `¡Ganaste esta ronda! Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
   } else if (cartaApostadaJugador.valor < cartaApostadaComputadora.valor) {
     computadora.puntos += apuesta;
-    document.getElementById('status').textContent = `Perdiste esta ronda. Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
+    document.querySelector('#status').textContent = `Perdiste esta ronda. Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
   } else {
-    document.getElementById('status').textContent = `Empate en esta ronda. Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
+    document.querySelector('#status').textContent = `Empate en esta ronda. Puntos Jugador: ${jugador.puntos} | Puntos Computadora: ${computadora.puntos}`;
   }
 
   // Mostrar qué carta se apostó
-  document.getElementById('instrucciones').innerHTML += `<br>Tu carta apostada: ${cartaApostadaJugador.valor} de ${cartaApostadaJugador.palo}`;
-  document.getElementById('instrucciones').innerHTML += `<br>Carta de la computadora: ${cartaApostadaComputadora.valor} de ${cartaApostadaComputadora.palo}`;
+  document.querySelector('#instrucciones').innerHTML += `<br>Tu carta apostada: ${cartaApostadaJugador.valor} de ${cartaApostadaJugador.palo}`;
+  document.querySelector('#instrucciones').innerHTML += `<br>Carta de la computadora: ${cartaApostadaComputadora.valor} de ${cartaApostadaComputadora.palo}`;
 
   // Verificar si se ha llegado al final del turno
   if (rondaActual < 3) {
     rondaActual++;
     setTimeout(() => {
       mostrarCartas(); // Mostrar cartas restantes
-      document.getElementById('instrucciones').textContent = `Apuesta de ${apuesta} puntos. Ronda ${rondaActual}: selecciona una carta.`;
+      document.querySelector('#instrucciones').textContent = `Apuesta de ${apuesta} puntos. Ronda ${rondaActual}: selecciona una carta.`;
     }, 1000);
   } else {
     // Al final del turno, descartar cartas y verificar ganadores
@@ -175,17 +175,14 @@ function jugarTurno(indiceCartaJugador) {
 }
 
 // Añadir eventos a los botones de apuesta
-document.getElementById('apuesta-5').onclick = () => establecerApuesta(5);
-document.getElementById('apuesta-10').onclick = () => establecerApuesta(10);
-document.getElementById('apuesta-15').onclick = () => establecerApuesta(15);
-
+document.querySelector('#apuesta-5').onclick = () => establecerApuesta(5);
+document.querySelector('#apuesta-10').onclick = () => establecerApuesta(10);
+document.querySelector('#apuesta-15').onclick = () => establecerApuesta(15);
 
 function guardarClasificacion() {
   try {
-    // Recuperar el array de clasificaciones del localStorage o crear uno nuevo
     let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
 
-    // Crear un objeto de clasificación con el puntaje del jugador o la computadora
     let clasificacion = {
       juego: "Juego de Cartas",
       fecha: new Date().toISOString(),
@@ -193,16 +190,11 @@ function guardarClasificacion() {
       puntaje: jugador.puntos >= 50 ? jugador.puntos : computadora.puntos
     };
 
-    // Agregar la clasificación al array de clasificaciones
     clasificaciones.push(clasificacion);
 
-    // Ordenar las clasificaciones por puntaje de mayor a menor
     clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
-
-    // Guardar solo las tres mejores clasificaciones
     clasificaciones = clasificaciones.slice(0, 3);
 
-    // Guardar el array de clasificaciones en el localStorage
     localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
   } catch (error) {
     console.error('Error guardando las clasificaciones:', error);
@@ -210,39 +202,15 @@ function guardarClasificacion() {
 }
 
 function finalizarJuego() {
-  // Verificar si el jugador o la computadora llegó a 50 puntos
   if (jugador.puntos >= 50 || computadora.puntos >= 50) {
     if (jugador.puntos >= 50) {
       alert('¡Felicidades! Has ganado el juego.');
     } else {
       alert('La computadora ha ganado el juego. ¡Mejor suerte la próxima vez!');
     }
-    guardarClasificacion(); // Guarda la clasificación
+    guardarClasificacion(); 
     reiniciarJuego();
   } else {
-    comenzarNuevoTurno();  // Si no hay ganador, inicia un nuevo turno
+    comenzarNuevoTurno(); 
   }
 }
-
-// Llamar a finalizarJuego después de cada turno en la lógica existente
-if (rondaActual < 3) {
-  rondaActual++;
-  setTimeout(() => {
-    mostrarCartas(); // Mostrar cartas restantes
-    document.getElementById('instrucciones').textContent = `Apuesta de ${apuesta} puntos. Ronda ${rondaActual}: selecciona una carta.`;
-  }, 1000);
-} else {
-  mostrarCartas();
-  jugador.cartas = [];
-  computadora.cartas = [];
-  rondaActual = 1;
-
-  // Finaliza el juego o continúa si no hay ganador
-  finalizarJuego();
-}
-
-// Reiniciar el juego después de mostrar el mensaje
-reiniciarJuego();
-
-// Comprobar el almacenamiento en localStorage para verificar las clasificaciones guardadas
-console.log(JSON.parse(localStorage.getItem('clasificaciones')));
