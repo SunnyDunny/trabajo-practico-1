@@ -165,9 +165,9 @@ function jugarTurno(indiceCartaJugador) {
     // Vuelve a barajar las cartas si no hay ganador
     if (jugador.puntos >= 50 || computadora.puntos >= 50) {
       if (jugador.puntos >= 50) {
-        alert('¡Felicidades ' + nombreJugador + '! Ganaste el juego 🎉');
+        alert('¡Felicidades ' + nombreJugador + '! Ganaste el juego con ' + jugador.puntos + ' puntos. 🎉');
       } else {
-        alert('La computadora ganó el juego. ¡Mejor suerte la próxima! 😿');
+        alert('La computadora ganó el juego con ' + computadora.puntos + ' puntos. ¡Mejor suerte la próxima! 😿');
       }
       guardarClasificacion();
       reiniciarJuego();
@@ -195,39 +195,43 @@ document.querySelector('#comenzar-juego').onclick = () => {
   }
 };
 
-// Función para guardar la clasificación en localStorage
-function guardarClasificacion(jugador, puntaje) {
+// Función para guardar la clasificación en localstorage
+function guardarClasificacion() {
+  const puntaje = Math.max(jugador.puntos, computadora.puntos);
+  const jugadorNombre = jugador.puntos >= computadora.puntos ? nombreJugador : 'Computadora';
+
   const nuevaClasificacion = {
-      jugador: jugador,
-      puntaje: puntaje,
-      fecha: new Date().toISOString(),
-      juego: "Juego de Dados"
+    jugador: jugadorNombre,
+    puntaje: puntaje,
+    fecha: new Date().toISOString(),
+    juego: "Juego de Cartas"
   };
 
-  // Capturar el array de clasificaciones de localStorage o crea uno vacío
   let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
 
-  // Agrega la nueva clasificación solo si está dentro de los tres mejores
-  clasificaciones.push(nuevaClasificacion);
+  const indice = clasificaciones.findIndex(clasificacion => clasificacion.juego === "Juego de Cartas" && clasificacion.jugador === jugadorNombre);
 
-  // Ordena las clasificaciones por puntaje de mayor a menor
+  if (indice !== -1) {
+    clasificaciones[indice] = nuevaClasificacion; // Actualiza la clasificación existente
+  } else {
+    clasificaciones.push(nuevaClasificacion); // Agrega nueva clasificación
+  }
+
   clasificaciones.sort((a, b) => b.puntaje - a.puntaje);
+  clasificaciones = clasificaciones.slice(0, 3); // Mantiene solo las tres mejores clasificaciones
 
-  // Solo mantiene los tres primeros puntajes
-  clasificaciones = clasificaciones.slice(0, 3);
+  console.log('Clasificaciones guardadas:', clasificaciones); // Para depuración
 
-  // Guarda el array actualizado en localStorage
-  localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
-
+  localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones)); // Guarda en localStorage
 }
 
 // Función que se llama al finalizar el juego para verificar si hay ganador y guarda la clasificación
 function finalizarJuego() {
   if (jugador.puntos >= 50 || computadora.puntos >= 50) {
     if (jugador.puntos >= 50) {
-      alert('¡Felicidades! ' + nombreJugador + '! Ganaste el juego 🎉');
+      alert('¡Felicidades! ' + nombreJugador + '! Ganaste el juego con ' + jugador.puntos + ' puntos 🎉');
     } else {
-      alert('La computadora ganó el juegi. ¡Mejor suerte la próxima! 😿');
+      alert('La computadora ganó el juego con ' + computadora.puntos + ' puntos. ¡Mejor suerte la próxima! 😿');
     }
     guardarClasificacion(); // Guarda la clasificación al finalizar el juego
     reiniciarJuego(); // Reinicia el juego después de guardar la clasificación
