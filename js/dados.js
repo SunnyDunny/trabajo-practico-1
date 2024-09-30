@@ -145,20 +145,20 @@ function jugar() {
     actualizarTablaHistorial(1, puntos1, false);
     actualizarTablaHistorial(2, puntos2, false);
 
- // Verifica si algún jugador alcanzó los 100 puntos
-if (puntosJugador1 >= limitePuntos) {
-    document.querySelector('#resultado').innerText = `¡${document.querySelector('#nombre-jugador1').value} ganó el juego!`;
-    guardarClasificacion(document.querySelector('#nombre-jugador1').value || 'Desconocido', puntosJugador1);
-    guardarMaxPuntaje();
-    alert(`¡${document.querySelector('#nombre-jugador1').value} ha ganado!`);
-} else if (puntosJugador2 >= limitePuntos) {
-    document.querySelector('#resultado').innerText = `${document.querySelector('#nombre-jugador2').value} ganó el juego!`;
-    guardarClasificacion(document.querySelector('#nombre-jugador2').value || 'Desconocido', puntosJugador2);
-    guardarMaxPuntaje();
-    alert(`¡${document.querySelector('#nombre-jugador2').value} ha ganado!`);
-}
+    // Verifica si algún jugador alcanzó los 100 puntos
+    if (puntosJugador1 >= limitePuntos) {
+        document.querySelector('#resultado').innerText = `¡${document.querySelector('#nombre-jugador1').value} ganó el juego!`;
+        guardarClasificacion(document.querySelector('#nombre-jugador1').value || 'Desconocido', puntosJugador1);
+        guardarMaxPuntaje();
+        alert(`¡${document.querySelector('#nombre-jugador1').value} ha ganado!`);
+    } else if (puntosJugador2 >= limitePuntos) {
+        document.querySelector('#resultado').innerText = `${document.querySelector('#nombre-jugador2').value} ganó el juego!`;
+        guardarClasificacion(document.querySelector('#nombre-jugador2').value || 'Desconocido', puntosJugador2);
+        guardarMaxPuntaje();
+        alert(`¡${document.querySelector('#nombre-jugador2').value} ha ganado!`);
+    }
 
-    
+
 }
 
 // Reinicia el juego
@@ -178,7 +178,7 @@ document.querySelector('#jugar-btn').addEventListener('click', jugar);
 document.querySelector('#reiniciar-btn').addEventListener('click', reiniciarJuego);
 
 // Muestra el puntaje más alto al cargar la página
-window.onload = function() {
+window.onload = function () {
     const maxPuntaje = localStorage.getItem('maxPuntajeDado') || 0;
     const maxNombre = localStorage.getItem('maxNombreDado') || 'Desconocido';
     document.querySelector('#max-puntaje').innerText = `Puntaje más alto: ${maxPuntaje} - ${maxNombre}`;

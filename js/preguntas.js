@@ -1,109 +1,109 @@
 // Definición del juego y las preguntas
 const juego = {
-    preguntas: [
-      {
-        pregunta: "¿Cuál es el signo zodiacal asociado con las personas nacidas entre el 21 de marzo y el 19 de abril?",
-        opciones: ["Cáncer", "Géminis", "Aries", "Sagitario"],
-        respuestaCorrecta: 2
-      },
-      {
-        pregunta: "¿Qué elemento representa el signo Tauro?",
-        opciones: ["Agua", "Tierra", "Fuego", "Aire"],
-        respuestaCorrecta: 1
-      },
-      {
-        pregunta: "¿Cuál es el planeta regente de Géminis?",
-        opciones: ["Venus", "Mercurio", "Luna", "Marte"],
-        respuestaCorrecta: 1
-      },
-      {
-        pregunta: "¿Qué signo del zodiaco es conocido por su lealtad y sensibilidad?",
-        opciones: ["Cáncer", "Tauro", "Aries", "Virgo"],
-        respuestaCorrecta: 0
-      },
-      {
-        pregunta: "¿Cuál es el símbolo del signo Leo?",
-        opciones: ["Toro", "Balanza", "Cabra", "León"],
-        respuestaCorrecta: 3
-      },
-      {
-        pregunta: "¿Qué elemento comparten los signos Sagitario, Leo y Aries?",
-        opciones: ["Aire", "Fuego", "Agua", "Tierra"],
-        respuestaCorrecta: 1
-      },
-      {
-        pregunta: "¿Cuál es el planeta regente de Capricornio?",
-        opciones: ["Jupiter", "Saturno", "Urano", "Neptuno"],
-        respuestaCorrecta: 1
-      },
-      {
-        pregunta: "¿Qué signo zodiacal está asociado con el agua y la intuición?",
-        opciones: ["Cáncer", "Piscis", "Escorpio", "Libra"],
-        respuestaCorrecta: 1
-      },
-      {
-        pregunta: "¿Cuál es el opuesto astrológico de Aries?",
-        opciones: ["Leo", "Sagitario", "Libra", "Piscis"],
-        respuestaCorrecta: 2
-      },
-      {
+  preguntas: [
+    {
+      pregunta: "¿Cuál es el signo zodiacal asociado con las personas nacidas entre el 21 de marzo y el 19 de abril?",
+      opciones: ["Cáncer", "Géminis", "Aries", "Sagitario"],
+      respuestaCorrecta: 2
+    },
+    {
+      pregunta: "¿Qué elemento representa el signo Tauro?",
+      opciones: ["Agua", "Tierra", "Fuego", "Aire"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Cuál es el planeta regente de Géminis?",
+      opciones: ["Venus", "Mercurio", "Luna", "Marte"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Qué signo del zodiaco es conocido por su lealtad y sensibilidad?",
+      opciones: ["Cáncer", "Tauro", "Aries", "Virgo"],
+      respuestaCorrecta: 0
+    },
+    {
+      pregunta: "¿Cuál es el símbolo del signo Leo?",
+      opciones: ["Toro", "Balanza", "Cabra", "León"],
+      respuestaCorrecta: 3
+    },
+    {
+      pregunta: "¿Qué elemento comparten los signos Sagitario, Leo y Aries?",
+      opciones: ["Aire", "Fuego", "Agua", "Tierra"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Cuál es el planeta regente de Capricornio?",
+      opciones: ["Jupiter", "Saturno", "Urano", "Neptuno"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Qué signo zodiacal está asociado con el agua y la intuición?",
+      opciones: ["Cáncer", "Piscis", "Escorpio", "Libra"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Cuál es el opuesto astrológico de Aries?",
+      opciones: ["Leo", "Sagitario", "Libra", "Piscis"],
+      respuestaCorrecta: 2
+    },
+    {
       pregunta: "¿Qué casa astrológica representa la comunicación y los viajes cortos?",
-        opciones: ["Casa 2|Tauro", "Casa 9|Sagitario", "Casa 3|Geminis", "Casa 12|Piscis"],
-        respuestaCorrecta: 2
-      },
-      {
-        pregunta: "¿Cuál es el signo zodiacal que se asocia con la creatividad y la imaginación?",
-          opciones: ["Leo", "Capricornio", "Piscis", "Virgo"],
-          respuestaCorrecta: 2
-        },
-        {
-            pregunta: "¿Qué elemento comparten los signos Escorpio, Piscis y Cáncer?",
-              opciones: ["Agua", "Tierra", "Aire", "Fuego"],
-              respuestaCorrecta: 0
-            },
-            {
-            pregunta: "¿Cuál es el planeta regente de Acuario?",
-            opciones: ["Neptuno", "Urano", "Júpiter", "Saturno"],
-            respuestaCorrecta: 1
-          },
-            {
-            pregunta: "¿Qué casa astrológica está relacionada con el hogar y la familia?",
-                opciones: ["Casa 4|Cáncer", "Casa 7|Libra", "Casa 11|Acuario", "Casa 1|Aries"],
-                respuestaCorrecta: 0
-                },
-                {
-                    pregunta: "¿Cuál es el símbolo del signo Virgo?",
-                      opciones: ["Cabra", "Virgen", "Balanza", "Arco y Flecha"],
-                      respuestaCorrecta: 1
-                    },
-                    {
-                        pregunta: "¿Qué elemento representa el signo Libra?",
-                          opciones: ["Tierra", "Agua", "Fuego", "Aire"],
-                          respuestaCorrecta: 3
-                        },    
-                {
-                    pregunta: "¿Cuál es el planeta regente de Piscis?",
-                      opciones: ["Luna", "Marte", "Neptuno", "Urano"],
-                      respuestaCorrecta: 2
-                    },
-                    {
-                        pregunta: "¿Qué casa astrológica se relaciona con la carrera y la ambición?",
-                          opciones: ["Casa 3|Tauro", "Casa 6|Virgo", "Casa 10|Capricornio", "Casa 1|Aries"],
-                          respuestaCorrecta: 2
-                        },
-                    {
-                        pregunta: "¿Cuál es el signo zodiacal que se asocia con la pasión y la intensidad?",
-                          opciones: ["Aries", "Escorpio", "Leo", "Tauro"],
-                          respuestaCorrecta: 1
-                        },
-                    {
-                        pregunta: "¿Qué elemento comparten los signos Capricornio, Tauro y Virgo?",
-                          opciones: ["Agua", "Fuego", "Tierra", "Aire"],
-                          respuestaCorrecta: 2
-                        },
-    ]
-  };
-  // Variables del juego
+      opciones: ["Casa 2|Tauro", "Casa 9|Sagitario", "Casa 3|Geminis", "Casa 12|Piscis"],
+      respuestaCorrecta: 2
+    },
+    {
+      pregunta: "¿Cuál es el signo zodiacal que se asocia con la creatividad y la imaginación?",
+      opciones: ["Leo", "Capricornio", "Piscis", "Virgo"],
+      respuestaCorrecta: 2
+    },
+    {
+      pregunta: "¿Qué elemento comparten los signos Escorpio, Piscis y Cáncer?",
+      opciones: ["Agua", "Tierra", "Aire", "Fuego"],
+      respuestaCorrecta: 0
+    },
+    {
+      pregunta: "¿Cuál es el planeta regente de Acuario?",
+      opciones: ["Neptuno", "Urano", "Júpiter", "Saturno"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Qué casa astrológica está relacionada con el hogar y la familia?",
+      opciones: ["Casa 4|Cáncer", "Casa 7|Libra", "Casa 11|Acuario", "Casa 1|Aries"],
+      respuestaCorrecta: 0
+    },
+    {
+      pregunta: "¿Cuál es el símbolo del signo Virgo?",
+      opciones: ["Cabra", "Virgen", "Balanza", "Arco y Flecha"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Qué elemento representa el signo Libra?",
+      opciones: ["Tierra", "Agua", "Fuego", "Aire"],
+      respuestaCorrecta: 3
+    },
+    {
+      pregunta: "¿Cuál es el planeta regente de Piscis?",
+      opciones: ["Luna", "Marte", "Neptuno", "Urano"],
+      respuestaCorrecta: 2
+    },
+    {
+      pregunta: "¿Qué casa astrológica se relaciona con la carrera y la ambición?",
+      opciones: ["Casa 3|Tauro", "Casa 6|Virgo", "Casa 10|Capricornio", "Casa 1|Aries"],
+      respuestaCorrecta: 2
+    },
+    {
+      pregunta: "¿Cuál es el signo zodiacal que se asocia con la pasión y la intensidad?",
+      opciones: ["Aries", "Escorpio", "Leo", "Tauro"],
+      respuestaCorrecta: 1
+    },
+    {
+      pregunta: "¿Qué elemento comparten los signos Capricornio, Tauro y Virgo?",
+      opciones: ["Agua", "Fuego", "Tierra", "Aire"],
+      respuestaCorrecta: 2
+    },
+  ]
+};
+// Variables del juego
 let jugadorActual = 0;
 let puntajes = [0, 0];
 let preguntasRestantes = [...juego.preguntas];
@@ -201,54 +201,54 @@ function desactivarOpciones() {
 }
 
 // Función para pasar a la siguiente pregunta o terminar el juego
-btnSiguiente.onclick = function() {
+btnSiguiente.onclick = function () {
   siguientePregunta();
 };
-  
+
 // Función para guardar la clasificación en localStorage
 function guardarClasificacion(jugador, puntaje) {
-    const nuevaClasificacion = {
-      jugador: jugador,
-      puntaje: puntaje,
-      fecha: new Date().toISOString(),
-      juego: "Trivia Zodíaco"
-    };
-  
-    // Captura el array de clasificaciones de localStorage o crea uno vacío
-    let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
-  
-    // Agrega la nueva clasificación
-    clasificaciones.push(nuevaClasificacion);
-  
-    // Guarda el array actualizado en localStorage
-    localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
+  const nuevaClasificacion = {
+    jugador: jugador,
+    puntaje: puntaje,
+    fecha: new Date().toISOString(),
+    juego: "Trivia Zodíaco"
+  };
+
+  // Captura el array de clasificaciones de localStorage o crea uno vacío
+  let clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
+
+  // Agrega la nueva clasificación
+  clasificaciones.push(nuevaClasificacion);
+
+  // Guarda el array actualizado en localStorage
+  localStorage.setItem('clasificaciones', JSON.stringify(clasificaciones));
+}
+
+// Modifica la función para que guarde las clasificaciones
+function mostrarResultados() {
+  contenedorJuego.style.display = "none";
+  divResultadoFinal.style.display = "block";
+
+  // Limpia el contenido previo
+  divPuntajeFinal.textContent = "";
+
+  // Determina el ganador y muestra puntajes
+  if (puntajes[0] > puntajes[1]) {
+    divResultadoFinal.textContent = `${jugadores[0]} gana con ${puntajes[0]} respuestas correctas! 🎉`;
+    divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
+    guardarClasificacion(jugadores[0], puntajes[0]);
+  } else if (puntajes[1] > puntajes[0]) {
+    divResultadoFinal.textContent = `${jugadores[1]} gana con ${puntajes[1]} respuestas correctas! 🎉`;
+    divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
+    guardarClasificacion(jugadores[1], puntajes[1]);
+  } else {
+    divResultadoFinal.textContent = "¡Es un empate! 🤝";
+    divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
+    guardarClasificacion(jugadores[0], puntajes[0]); // Guarda puntaje de ambos si es empate
+    guardarClasificacion(jugadores[1], puntajes[1]);
   }
-  
-  // Modifica la función para que guarde las clasificaciones
-  function mostrarResultados() {
-      contenedorJuego.style.display = "none";
-      divResultadoFinal.style.display = "block";
-    
-      // Limpia el contenido previo
-      divPuntajeFinal.textContent = "";
-    
-      // Determina el ganador y muestra puntajes
-      if (puntajes[0] > puntajes[1]) {
-        divResultadoFinal.textContent = `${jugadores[0]} gana con ${puntajes[0]} respuestas correctas! 🎉`;
-        divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
-        guardarClasificacion(jugadores[0], puntajes[0]);
-      } else if (puntajes[1] > puntajes[0]) {
-        divResultadoFinal.textContent = `${jugadores[1]} gana con ${puntajes[1]} respuestas correctas! 🎉`;
-        divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
-        guardarClasificacion(jugadores[1], puntajes[1]);
-      } else {
-        divResultadoFinal.textContent = "¡Es un empate! 🤝";
-        divPuntajeFinal.textContent = `${jugadores[0]}: ${puntajes[0]} puntos\n${jugadores[1]}: ${puntajes[1]} puntos`;
-        guardarClasificacion(jugadores[0], puntajes[0]); // Guarda puntaje de ambos si es empate
-        guardarClasificacion(jugadores[1], puntajes[1]);
-      }
-  }
-  
+}
+
 
 // Reinicia el temporizador
 function reiniciarTemporizador() {

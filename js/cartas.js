@@ -104,7 +104,7 @@ function mostrarCartas() {
     img.src = './imagenes/reverso.jpg'; // Cambia a la imagen del reverso de la carta
     img.alt = 'Carta Computadora';
     img.className = 'carta';
-    cartasCompDiv.appendChild(img); 
+    cartasCompDiv.appendChild(img);
   });
 }
 

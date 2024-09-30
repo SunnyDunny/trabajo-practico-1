@@ -1,76 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juego de Cartas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-  <header>
-    <h1>Tu Horóscopo</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="desarrollador.html">Sobre el desarrollador</a></li>
-        <li><a href="#">Juego de Cartas</a></li>
-        <li><a href="juego-dados.html">Juego de Dados</a></li>
-        <li><a href="preguntas-respuestas.html">Preguntas y Respuestas</a></li>
-        <li><a href="clasificaciones.html">Tabla de Clasificaciones</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="contenido">
-      <article>
-        <div id="juego">
-          <h2>Juego de Cartas</h2>
-          <div id="tablero">
-            <div class="jugador">
-              <h2>Jugador</h2>
-              <div id="nombre-jugador">
-                <label for="nombre">Introduce tu nombre:</label>
-                <input type="text" id="nombre" placeholder="Tu nombre">
-                <button id="comenzar-juego">Comenzar Juego</button>
-              </div>              
-              <div class="cartas" id="cartas-jugador">
-                <!-- Las cartas aparecen acá con javascript -->
-              </div>
-            </div>
-            <div class="computadora">
-              <h2>Computadora</h2>
-              <div class="cartas" id="cartas-computadora">
-                <!-- Ñas cartas de la computadora también aparecen acá con js -->
-              </div>
-            </div>
-          </div>
-          
-          <div>
-            <button id="apuesta-5" class="boton-apuesta" onclick="establecerApuesta(5)">Apostar 5</button>
-            <button id="apuesta-10" class="boton-apuesta" onclick="establecerApuesta(10)">Apostar 10</button>
-            <button id="apuesta-15" class="boton-apuesta" onclick="establecerApuesta(15)">Apostar 15</button>
-          </div>
-          <div class="status" id="status">Puntos Jugador: 0 | Puntos Computadora: 0</div>
-          <div class="instrucciones" id="instrucciones"></div>
-          <!-- Llama a la función cuando se hace click -->
-          <button id="reiniciar" onclick="reiniciarJuego()">Reiniciar Juego</button>
-        </div>
-        <h3>Instrucciones:</h3>
-          <p>Se debe jugar contra la computadora apostando puntos y las cartas de tu baraja. Apotá 5, 10 o 15 puntos y hacé click sobre la carta que deseés jugar en ese turno</p><br>
-          <p>Se gana reuniendo 50 puntos. Si se llega a la ronda 3 sin un ganador, se barajarán las cartas nuevamente y se jugará 3 rondas más hasta que se declare un ganador.</p><br>
-          <p>Cada palo valen de 1 a 7 respectivamente. Las cartas especiales, como el Rey, Caballo y Sota, valen 10.</p>
-      </article>
-    </section>
-  </main>
-  <footer>
-    <p>Todo sobre el Zodíaco</p>
-  </footer>
-  <script src="js/cartas.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Juego de Cartas</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <header>
+            <h1>Tu Horóscopo</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="desarrollador.html">Sobre el desarrollador</a>
+                    </li>
+                    <li>
+                        <a href="#">Juego de Cartas</a>
+                    </li>
+                    <li>
+                        <a href="juego-dados.html">Juego de Dados</a>
+                    </li>
+                    <li>
+                        <a href="preguntas-respuestas.html">Preguntas y Respuestas</a>
+                    </li>
+                    <li>
+                        <a href="clasificaciones.html">Tabla de Clasificaciones</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="contenido">
+                <article>
+                    <div id="juego">
+                        <h2>Juego de Cartas</h2>
+                        <div id="tablero">
+                            <div class="jugador">
+                                <h2>Jugador</h2>
+                                <div id="nombre-jugador">
+                                    <label for="nombre">Introduce tu nombre:</label>
+                                    <input type="text" id="nombre" placeholder="Tu nombre">
+                                    <button id="comenzar-juego">Comenzar Juego</button>
+                                </div>
+                                <div class="cartas" id="cartas-jugador">
+                                    <!-- Las cartas aparecen acá con javascript --></div>
+                            </div>
+                            <div class="computadora">
+                                <h2>Computadora</h2>
+                                <div class="cartas" id="cartas-computadora">
+                                    <!-- Ñas cartas de la computadora también aparecen acá con js --></div>
+                            </div>
+                        </div>
+                        <div>
+                            <button id="apuesta-5" class="boton-apuesta" onclick="establecerApuesta(5)">Apostar 5</button>
+                            <button id="apuesta-10" class="boton-apuesta" onclick="establecerApuesta(10)">Apostar 10</button>
+                            <button id="apuesta-15" class="boton-apuesta" onclick="establecerApuesta(15)">Apostar 15</button>
+                        </div>
+                        <div class="status" id="status">Puntos Jugador: 0 | Puntos Computadora: 0</div>
+                        <div class="instrucciones" id="instrucciones"></div>
+                        <!-- Llama a la función cuando se hace click -->
+                        <button id="reiniciar" onclick="reiniciarJuego()">Reiniciar Juego</button>
+                    </div>
+                    <h3>Instrucciones:</h3>
+                    <p>Se debe jugar contra la computadora apostando puntos y las cartas de tu baraja. Apotá 5, 10 o 15 puntos y hacé click sobre la carta que deseés jugar en ese turno</p>
+                    <br>
+                    <p>Se gana reuniendo 50 puntos. Si se llega a la ronda 3 sin un ganador, se barajarán las cartas nuevamente y se jugará 3 rondas más hasta que se declare un ganador.</p>
+                    <br>
+                    <p>Cada palo valen de 1 a 7 respectivamente. Las cartas especiales, como el Rey, Caballo y Sota, valen 10.</p>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <p>Todo sobre el Zodíaco</p>
+        </footer>
+        <script src="js/cartas.js"></script>
+    </body>
 </html>
