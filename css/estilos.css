@@ -8,9 +8,10 @@
 body {
     background-image: url(../imagenes/fondo-estrellas-verde.jpg);
     overflow-x: hidden;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;   
+    font-style: normal;
+    color: black;
 }
 
 header {
@@ -22,6 +23,10 @@ header {
 }
 
 header h1 {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
     font-size: 2.5rem;
     word-wrap: break-word;
 }
@@ -29,7 +34,7 @@ header h1 {
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 1rem;
@@ -55,23 +60,13 @@ nav ul li a:active {
 }
 
 
-img {
-    float: left;
-    max-width: 100%;
-    border-radius: 20px;
-    padding: 2em;
-}
-
-.desplazar-img{
-    float: right;
-}
-
 /* Flecha en contenido colapsado */
 details summary::marker {
     content: "⮞ ";
     color: rgb(255, 176, 231);
     font-size: 1.5rem;
   }
+
   
   /* Flecha en contenido desplegado */
   details[open] summary::marker {
@@ -87,6 +82,9 @@ details summary::marker {
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
+
+
+
 /* Añade márgenes entre los elementos de cada jugador (dados)*/
 .jugador {
     display: inline-block;
@@ -111,6 +109,8 @@ details summary::marker {
     font-size: 1.3em;
     margin-top: 20px;
 }
+
+
 /* Estilos para el juego de preguntas y respuestas */
 #contenedor-juego, #resultado-final {
     display: none;
@@ -145,6 +145,7 @@ details summary::marker {
     font-weight: bold;
     font-size: 18px;
   }
+
 
 /* Estilos para los formularios de ingreso y registro */
 .contenedor-ingreso, .contenedor-registro {
@@ -239,6 +240,7 @@ button:hover {
 
 article {
     background-color: whitesmoke;
+    text-align: justify;
     width: 100%;
     padding: 2rem;
     border-radius: 10px;
@@ -255,14 +257,14 @@ article h2 {
     margin-bottom: 1rem;
 }
 
-/* Sección de proyectos destacados */
-.destacados {
-    background: linear-gradient(135deg, #6C3B79, #DF3375 90%);
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 100%;
-}
+img {
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
 
+
+/* Sección de destacados */
 .destacados h2 {
     color: linear-gradient(135deg, #6C3B79, #DF3375 90%);
     text-align: center;
@@ -313,25 +315,25 @@ th, td {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     width: 80%;
-    max-width: 600px; /* Limitar el ancho en pantallas grandes */
+    max-width: 600px; /* Limita el ancho en pantallas grandes */
 }
 
 #tablero {
-    display: flex; /* Alinea los jugadores en filas */
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 20px;
 }
 
 .jugador, .computadora {
-    flex: 1; /* Cada jugador toma el mismo ancho */
-    text-align: center; /* Centrar texto en cada columna */
+    flex: 1;
+    text-align: center;
 }
 
 .cartas {
-    display: flex; /* Usamos flexbox para alinear las cartas en fila */
-    justify-content: center; /* Centra las cartas horizontalmente */
-    margin-top: 10px; /* Espacio entre el título y las cartas */
+    display: flex; 
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .instrucciones {
@@ -344,16 +346,16 @@ th, td {
     margin: auto;
 }
 
+
+/* Media queries */
 @media (min-width: 768px) {
     body {
         background-image: url(../imagenes/fondo-desktop.png);
     }
-
     .contenido {
         flex-direction: row;
-        gap: 2m;
+        gap: 2em;
     }
-
 
     .contenido article {
         flex: 1 1 calc(33.333% - 2rem);/* Calcula el ancho menos el espacio de 2rem entre artículos usando calc para restar espacio entre elementos y así alinear en tres filas*/
@@ -362,6 +364,11 @@ th, td {
 }
 
 @media (min-width: 1024px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
     main {
         max-width: 1200px;
         padding: 2rem;
@@ -370,6 +377,10 @@ th, td {
     }
 
     .destacados {
+        max-width: 100%;
+        padding: 2rem;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #6C3B79, #DF3375 90%);
         display: flex;
         justify-content: space-between;
     }
@@ -381,6 +392,21 @@ th, td {
 
     .proyecto:last-child {
         margin-right: 0;
+    }
+
+    img {
+        float: left;
+        max-width: 100%;
+        border-radius: 20px;
+        padding: 2em;
+    }
+    
+    .desplazar-img{
+        float: right;
+    }
+
+    .img-desarrollador {
+      width: 300px;
     }
 
 }
