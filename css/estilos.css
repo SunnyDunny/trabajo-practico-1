@@ -260,6 +260,7 @@ article h2 {
 img {
     display: block;
     width: 50%;
+    padding: 1em;
     margin: auto;
   }
 
@@ -346,6 +347,11 @@ th, td {
     margin: auto;
 }
 
+.banner {
+    margin: 0 100px 0 100px;
+
+}
+
 
 /* Media queries */
 @media (min-width: 768px) {
@@ -409,4 +415,7 @@ th, td {
       width: 300px;
     }
 
+    .banner {
+        margin: 0 250px 0 250px;
+    }
 }
