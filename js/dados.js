@@ -147,12 +147,12 @@ function jugar() {
 
  // Verifica si algún jugador alcanzó los 100 puntos
 if (puntosJugador1 >= limitePuntos) {
-    document.querySelector('#resultado').innerText = '¡Jugador 1 gana el juego!';
+    document.querySelector('#resultado').innerText = `¡${document.querySelector('#nombre-jugador1').value} ganó el juego!`;
     guardarClasificacion(document.querySelector('#nombre-jugador1').value || 'Desconocido', puntosJugador1);
     guardarMaxPuntaje();
     alert(`¡${document.querySelector('#nombre-jugador1').value} ha ganado!`);
 } else if (puntosJugador2 >= limitePuntos) {
-    document.querySelector('#resultado').innerText = '¡Jugador 2 gana el juego!';
+    document.querySelector('#resultado').innerText = `${document.querySelector('#nombre-jugador2').value} ganó el juego!`;
     guardarClasificacion(document.querySelector('#nombre-jugador2').value || 'Desconocido', puntosJugador2);
     guardarMaxPuntaje();
     alert(`¡${document.querySelector('#nombre-jugador2').value} ha ganado!`);
