@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tablaClasificaciones = document.getElementById('tabla-clasificaciones').querySelector('tbody');
     
-    // Recuperar las clasificaciones del localStorage
+    // Recupera las clasificaciones del localstorage
     const clasificaciones = JSON.parse(localStorage.getItem('clasificaciones')) || [];
   
-    // Iterar sobre las clasificaciones y añadirlas a la tabla
+    // Itera sobre las clasificaciones y añadirlas a la tabla
     clasificaciones.forEach(clasificacion => {
       const fila = document.createElement('tr');
 
