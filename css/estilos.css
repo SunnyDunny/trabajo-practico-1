@@ -9,7 +9,7 @@ body {
     background-image: url(../imagenes/fondo-estrellas-verde.jpg);
     overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;   
+    font-optical-sizing: auto;
     font-style: normal;
     color: black;
 }
@@ -65,22 +65,22 @@ details summary::marker {
     content: "⮞ ";
     color: rgb(255, 176, 231);
     font-size: 1.5rem;
-  }
+}
 
-  
-  /* Flecha en contenido desplegado */
-  details[open] summary::marker {
+
+/* Flecha en contenido desplegado */
+details[open] summary::marker {
     content: "⮟ ";
-  }
+}
 
-  summary {
-  text-align: center;
-  background-color: #b651df;
-  color: white;
-  box-shadow: 0 4px 8px rgba(167, 17, 248, 0.1);
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+summary {
+    text-align: center;
+    background-color: #b651df;
+    color: white;
+    box-shadow: 0 4px 8px rgba(167, 17, 248, 0.1);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 
@@ -99,7 +99,8 @@ details summary::marker {
 
 
 /* Estilos generales para los puntajes (dados) */
-#puntos-jugador1, #puntos-jugador2 {
+#puntos-jugador1,
+#puntos-jugador2 {
     font-size: 1.5em;
     font-weight: bold;
 }
@@ -112,14 +113,17 @@ details summary::marker {
 
 
 /* Estilos para el juego de preguntas y respuestas */
-#contenedor-juego, #resultado-final {
+#contenedor-juego,
+#resultado-final {
     display: none;
-  }
-  #pregunta {
+}
+
+#pregunta {
     font-size: 24px;
     margin: 20px 0;
-  }
-  .opcion {
+}
+
+.opcion {
     background-color: #7907f2;
     border: 2px solid #ccc;
     padding: 10px 20px;
@@ -128,27 +132,33 @@ details summary::marker {
     display: inline-block;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  .correcto {
+}
+
+.correcto {
     background-color: #28a745;
     color: white;
-  }
-  .incorrecto {
+}
+
+.incorrecto {
     background-color: #dc3545;
     color: white;
-  }
-  #puntajes, #temporizador {
+}
+
+#puntajes,
+#temporizador {
     margin: 20px 0;
-  }
-  #resultado-ronda {
+}
+
+#resultado-ronda {
     margin-top: 20px;
     font-weight: bold;
     font-size: 18px;
-  }
+}
 
 
 /* Estilos para los formularios de ingreso y registro */
-.contenedor-ingreso, .contenedor-registro {
+.contenedor-ingreso,
+.contenedor-registro {
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
@@ -160,18 +170,21 @@ details summary::marker {
 }
 
 /* Estilos del login */
-.contenedor-ingreso h2, .contenedor-registro h2 {
+.contenedor-ingreso h2,
+.contenedor-registro h2 {
     text-align: center;
     color: #6C3B79;
     margin-bottom: 1.5rem;
 }
 
-.contenedor-ingreso form, .contenedor-registro form {
+.contenedor-ingreso form,
+.contenedor-registro form {
     display: flex;
     flex-direction: column;
 }
 
-label, input {
+label,
+input {
     display: block;
     width: 100%;
     margin-bottom: 1rem;
@@ -179,7 +192,8 @@ label, input {
     color: #333;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
     padding: 0.8rem;
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -201,17 +215,20 @@ button:hover {
     background-color: #DF3375;
 }
 
-.contenedor-ingreso p, .contenedor-registro p {
+.contenedor-ingreso p,
+.contenedor-registro p {
     text-align: center;
     margin-top: 1rem;
 }
 
-.contenedor-ingreso p a, .contenedor-registro p a {
+.contenedor-ingreso p a,
+.contenedor-registro p a {
     color: #6C3B79;
     text-decoration: none;
 }
 
-.contenedor-ingreso p a:hover, .contenedor-registro p a:hover {
+.contenedor-ingreso p a:hover,
+.contenedor-registro p a:hover {
     color: #DF3375;
 }
 
@@ -262,7 +279,7 @@ img {
     width: 50%;
     padding: 1em;
     margin: auto;
-  }
+}
 
 
 /* Sección de destacados */
@@ -281,7 +298,7 @@ img {
 }
 
 .proyecto h3 {
-    color:#57186F ;
+    color: #57186F;
     text-align: center;
     padding: 1em;
 }
@@ -302,7 +319,9 @@ table {
     width: 50%;
     border-collapse: collapse;
 }
-th, td {
+
+th,
+td {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
@@ -316,7 +335,8 @@ th, td {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     width: 80%;
-    max-width: 600px; /* Limita el ancho en pantallas grandes */
+    max-width: 600px;
+    /* Limita el ancho en pantallas grandes */
 }
 
 #tablero {
@@ -326,13 +346,14 @@ th, td {
     margin-top: 20px;
 }
 
-.jugador, .computadora {
+.jugador,
+.computadora {
     flex: 1;
     text-align: center;
 }
 
 .cartas {
-    display: flex; 
+    display: flex;
     justify-content: center;
     margin-top: 10px;
 }
@@ -343,7 +364,7 @@ th, td {
 }
 
 .cartas img {
-    width: 95px;  
+    width: 95px;
     margin: auto;
 }
 
@@ -358,13 +379,15 @@ th, td {
     body {
         background-image: url(../imagenes/fondo-desktop.png);
     }
+
     .contenido {
         flex-direction: row;
         gap: 2em;
     }
 
     .contenido article {
-        flex: 1 1 calc(33.333% - 2rem);/* Calcula el ancho menos el espacio de 2rem entre artículos usando calc para restar espacio entre elementos y así alinear en tres filas*/
+        flex: 1 1 calc(33.333% - 2rem);
+        /* Calcula el ancho menos el espacio de 2rem entre artículos usando calc para restar espacio entre elementos y así alinear en tres filas*/
 
     }
 }
@@ -406,13 +429,13 @@ th, td {
         border-radius: 20px;
         padding: 2em;
     }
-    
-    .desplazar-img{
+
+    .desplazar-img {
         float: right;
     }
 
     .img-desarrollador {
-      width: 300px;
+        width: 300px;
     }
 
     .banner {
